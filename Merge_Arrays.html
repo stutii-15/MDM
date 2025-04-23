@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Merge Arrays and Remove Duplicates</title>
+</head>
+<body>
+  <h2>Merge Two Arrays and Remove Duplicate Items</h2>
+  <label for="array1">First Array (comma-separated):</label>
+  <input type="text" id="array1" placeholder="Enter first array"><br><br>
+
+  <label for="array2">Second Array (comma-separated):</label>
+  <input type="text" id="array2" placeholder="Enter second array"><br><br>
+
+  <button onclick="mergeArrays()">Merge Arrays</button>
+  <p id="result"></p>
+
+  <script>
+    function mergeArrays() {
+      const array1 = document.getElementById("array1").value.split(",").map(Number);
+      const array2 = document.getElementById("array2").value.split(",").map(Number);
+
+      // Merge and remove duplicates
+      const mergedArray = array1.concat(array2);
+      const uniqueArray = [...new Set(mergedArray)];
+
+      document.getElementById("result").textContent = "Merged Array without Duplicates: " + uniqueArray;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Current Date Display</title>
+</head>
+<body>
+  <h2>Display Current Date</h2>
+  <button onclick="displayCurrentDate()">Show Current Date</button>
+  <p id="dateDisplay"></p>
+
+  <script>
+    function displayCurrentDate() {
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+      });
+
+      document.getElementById("dateDisplay").textContent = `Current Date: ${formattedDate}`;
+    }
+  </script>
+</body>
+</html>

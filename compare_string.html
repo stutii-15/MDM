@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compare Two Strings</title>
+</head>
+<body>
+  <h2>Compare Two Strings</h2>
+  <input type="text" id="string1" placeholder="Enter first string">
+  <input type="text" id="string2" placeholder="Enter second string">
+  <button onclick="compareStrings()">Compare</button>
+  <p id="result"></p>
+
+  <script>
+    function compareStrings() {
+      const string1 = document.getElementById('string1').value;
+      const string2 = document.getElementById('string2').value;
+      const result = document.getElementById('result');
+
+      if (string1 === string2) {
+        result.textContent = "The strings are equal.";
+      } else {
+        result.textContent = "The strings are not equal.";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check if Number is Float or Integer</title>
+</head>
+<body>
+  <h2>Check if a Number is a Float or Integer</h2>
+  <input type="number" id="numberInput" step="any" placeholder="Enter a number">
+  <button onclick="checkNumber()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkNumber() {
+      const number = parseFloat(document.getElementById("numberInput").value);
+      const resultElement = document.getElementById("result");
+
+      if (isNaN(number)) {
+        resultElement.textContent = "Please enter a valid number.";
+      } else {
+        if (Number.isInteger(number)) {
+          resultElement.textContent = `${number} is an integer.`;
+        } else {
+          resultElement.textContent = `${number} is a float.`;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
