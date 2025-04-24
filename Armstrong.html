@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Armstrong Numbers in Interval</title>
+</head>
+<body>
+  <h2>Find Armstrong Numbers in an Interval</h2>
+  <input type="number" id="start" placeholder="Start" />
+  <input type="number" id="end" placeholder="End" />
+  <button onclick="findArmstrong()">Find</button>
+  <pre id="output"></pre>
+
+  <script>
+    function findArmstrong() {
+      const start = parseInt(document.getElementById("start").value);
+      const end = parseInt(document.getElementById("end").value);
+      let result = "";
+
+      if (isNaN(start) || isNaN(end) || start > end) {
+        result = "Please enter a valid interval.";
+      } else {
+        for (let num = start; num <= end; num++) {
+          let sum = 0, temp = num;
+          const digits = num.toString().length;
+
+          while (temp > 0) {
+            let digit = temp % 10;
+            sum += Math.pow(digit, digits);
+            temp = Math.floor(temp / 10);
+          }
+
+          if (sum === num) {
+            result += num + "\n";
+          }
+        }
+        if (!result) result = "No Armstrong numbers found in this interval.";
+      }
+
+      document.getElementById("output").textContent = result;
+    }
+  </script>
+</body>
+</html>

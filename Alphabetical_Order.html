@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alphabetical Sorter</title>
+</head>
+<body>
+  <h2>Sort Words in Alphabetical Order</h2>
+  <textarea id="textInput" rows="4" cols="50" placeholder="Enter words or a sentence..."></textarea><br>
+  <button onclick="sortWords()">Sort</button>
+  <p><strong>Sorted Words:</strong></p>
+  <pre id="result"></pre>
+
+  <script>
+    function sortWords() {
+      const input = document.getElementById('textInput').value;
+      let words = input.trim().split(/\s+/); // Split by any whitespace
+      words.sort((a, b) => a.localeCompare(b));
+      document.getElementById('result').textContent = words.join(" ");
+    }
+  </script>
+</body>
+</html>

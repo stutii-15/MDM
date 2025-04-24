@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table Examples</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Multiplication Table - All Versions</h1>
+
+  <!-- 1. Hardcoded Version -->
+  <div class="section">
+    <h2>1. Hardcoded (number = 5)</h2>
+    <pre id="hardcodedResult"></pre>
+  </div>
+
+  <!-- 2. Prompt Version -->
+  <div class="section">
+    <h2>2. Prompt Input</h2>
+    <button onclick="promptTable()">Try Prompt Version</button>
+  </div>
+
+  <!-- 3. HTML Input Version -->
+  <div class="section">
+    <h2>3. HTML Input</h2>
+    <input type="number" id="inputNumber" placeholder="Enter a number">
+    <button onclick="htmlInputTable()">Show Table</button>
+    <pre id="htmlResult"></pre>
+  </div>
+
+  <script>
+    // 1. Hardcoded Version
+    function hardcodedTable() {
+      let number = 5;
+      let result = "";
+      for (let i = 1; i <= 10; i++) {
+        result += `${number} x ${i} = ${number * i}\n`;
+      }
+      document.getElementById("hardcodedResult").textContent = result;
+    }
+
+    // 2. Prompt Version
+    function promptTable() {
+      let number = parseInt(prompt("Enter a number:"));
+      if (!isNaN(number)) {
+        let result = "";
+        for (let i = 1; i <= 10; i++) {
+          result += `${number} x ${i} = ${number * i}\n`;
+        }
+        alert(result);
+      } else {
+        alert("Please enter a valid number.");
+      }
+    }
+
+    // 3. HTML Input Version
+    function htmlInputTable() {
+      let number = parseInt(document.getElementById("inputNumber").value);
+      let result = "";
+      if (!isNaN(number)) {
+        for (let i = 1; i <= 10; i++) {
+          result += `${number} x ${i} = ${number * i}\n`;
+        }
+      } else {
+        result = "Please enter a valid number.";
+      }
+      document.getElementById("htmlResult").textContent = result;
+    }
+
+    // Run hardcoded version on page load
+    hardcodedTable();
+  </script>
+
+</body>
+</html>

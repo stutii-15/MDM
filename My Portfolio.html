@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #34495e;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .about, .projects, .contact {
+      background-color: white;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .project {
+      margin-bottom: 20px;
+    }
+
+    .project h3 {
+      color: #2980b9;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Stutii</h1>
+    <p>Web Developer | Designer | Learner </p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Stutii, a passionate web developer with a love for building websites. I specialize in front-end development and enjoy turning ideas into reality using code.</p>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>A personal website to showcase my skills and projects. Built using HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project">
+      <h3>To-Do App</h3>
+      <p>A simple task management app built with React.</p>
+    </div>
+    <div class="project">
+      <h3>Weather Dashboard</h3>
+      <p>A weather app that shows current conditions using an API.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: basstutii@gmail.com</p>
+    <p>Phone: 7777804268</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Stutii. All rights reserved.
+  </footer>
+
+</body>
+</html>

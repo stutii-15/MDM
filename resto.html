@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amol veg | Restaurant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fefefe;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    nav {
+      background-color: #34495e;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    .hero {
+      background-color:aquamarine ;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(173, 16, 87);
+      text-shadow: 2px 2px 5px black;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+    }
+
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .item {
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+    }
+
+    .contact {
+      background-color: #f1f1f1;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Amol Veg Restro</h1>
+    <p>Your Favorite Place to Eat</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Welcome to Amol veg</h1>
+  </div>
+
+  <section id="menu" class="section">
+    <h2>Our Menu</h2>
+    <div class="menu-items">
+      <div class="item">
+        <h3>Margherita Pizza</h3>
+        <p>Classic delight with fresh basil and mozzarella.</p>
+        <strong>Rs.120</strong>
+      </div>
+      <div class="item">
+        <h3>Amol Special</h3>
+        <p>We serves our special thali </p>
+        <strong>Rs.250</strong>
+      </div>
+      <div class="item">
+        <h3>Veggie Burger</h3>
+        <p>Loaded with grilled veggies and cheese.</p>
+        <strong>Rs.119</strong>
+      </div>
+      <div class="item">
+        <h3>pasta</h3>
+        <p>Creamy pasta with mushroom.</p>
+        <strong>Rs.90</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@amolveg.com</p>
+    <p>Phone: +1 234 567 8901</p>
+    <p>Location: Near WIT College,Solapur</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Amol veg. All rights reserved.
+  </footer>
+
+</body>
+</html>

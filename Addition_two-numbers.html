@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Two Numbers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      margin: 10px;
+      width: 150px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Add Two Numbers</h1>
+
+  <input type="number" id="num1" placeholder="Enter first number">
+  <input type="number" id="num2" placeholder="Enter second number">
+  <br>
+  <button onclick="addNumbers()">Add</button>
+
+  <div id="result"></div>
+
+  <script>
+    function addNumbers() {
+      var number1 = parseFloat(document.getElementById("num1").value);
+      var number2 = parseFloat(document.getElementById("num2").value);
+      var sum = number1 + number2;
+
+      if (!isNaN(sum)) {
+        document.getElementById("result").innerText = "Result: " + sum;
+      } else {
+        document.getElementById("result").innerText = "Please enter valid numbers.";
+      }
+    }
+  </script>
+
+</body>
+</html>
