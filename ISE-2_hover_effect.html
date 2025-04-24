@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hover Effect Example</title>
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            background-color: #ffffff;
+        }
+
+        .hover-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hover-target {
+            padding: 10px 20px;
+            background-color: #0e0ee2;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hover-text {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap; 
+            z-index: 1; 
+        }
+    </style>
+</head>
+<body>
+    <div class="hover-container">
+        <div class="hover-target">Hover over me!</div>
+        <div class="hover-text">This is the additional text that appears on hover.</div>
+    </div>
+
+    <script>
+        
+        const hoverContainer = document.querySelector('.hover-container');
+        const hoverText = document.querySelector('.hover-text');
+
+        
+        hoverContainer.addEventListener('mouseenter', () => {
+            hoverText.style.display = 'block'; 
+        });
+
+        hoverContainer.addEventListener('mouseleave', () => {
+            hoverText.style.display = 'none'; 
+        });
+    </script>
+</body>
+</html>

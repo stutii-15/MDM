@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch with Lap Time Recording</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #time {
+            font-size: 48px;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .lap-list {
+            margin-top: 20px;
+        }
+        .lap-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .lap-list li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Stopwatch</h1>
+<div id="time">
+    00:00.000
+</div>
+
+<button id="startStopButton">Start</button>
+<button id="resetButton" disabled>Reset</button>
+<button id="lapButton" disabled>Lap</button>
+
+<div class="lap-list">
+    <h3>Lap Times:</h3>
+    <ul id="lapTimesList">
+        <!-- Lap times will be added here -->
+    </ul>
+</div>
+
+<script>
+    let startTime = 0; // The timestamp when the stopwatch starts
+    let elapsedTime = 0; // The elapsed time in milliseconds
+    let running = false; // Stopwatch running state
+    let timerInterval; // To store the setInterval function
+    let lapTimes = []; // Array to store lap times
+
+    const timeDisplay = document.getElementById('time');
+    const startStopButton = document.getElementById('startStopButton');
+    const resetButton = document.getElementById('resetButton');
+    const lapButton = document.getElementById('lapButton');
+    const lapTimesList = document.getElementById('lapTimesList');
+
+    // Function to format the time in mm:ss.xxx format
+    function formatTime(time) {
+        const milliseconds = Math.floor(time % 1000);
+        const seconds = Math.floor((time / 1000) % 60);
+        const minutes = Math.floor(time / (1000 * 60));
+        return `${padZero(minutes)}:${padZero(seconds)}.${padZero(milliseconds, 3)}`;
+    }
+
+    // Function to add leading zeroes to time values
+    function padZero(num, length = 2) {
+        return num.toString().padStart(length, '0');
+    }
+
+    // Update the time display
+    function updateTimeDisplay() {
+        const currentTime = running ? Date.now() - startTime + elapsedTime : elapsedTime;
+        timeDisplay.textContent = formatTime(currentTime);
+    }
+
+    // Start or stop the stopwatch
+    function toggleStopwatch() {
+        if (running) {
+            // Stop the stopwatch
+            clearInterval(timerInterval);
+            elapsedTime += Date.now() - startTime;
+            startStopButton.textContent = 'Start';
+            lapButton.disabled = true;
+        } else {
+            // Start the stopwatch
+            startTime = Date.now();
+            timerInterval = setInterval(updateTimeDisplay, 10);
+            startStopButton.textContent = 'Stop';
+            lapButton.disabled = false;
+        }
+        running = !running;
+        resetButton.disabled = false;
+    }
+
+    // Reset the stopwatch
+    function resetStopwatch() {
+        clearInterval(timerInterval);
+        elapsedTime = 0;
+        lapTimes = [];
+        updateTimeDisplay();
+        lapTimesList.innerHTML = ''; // Clear the lap times list
+        startStopButton.textContent = 'Start';
+        resetButton.disabled = true;
+        lapButton.disabled = true;
+        running = false;
+    }
+
+    // Record a lap time
+    function recordLap() {
+        const currentLapTime = running ? Date.now() - startTime + elapsedTime : elapsedTime;
+        lapTimes.push(currentLapTime);
+        const lapItem = document.createElement('li');
+        lapItem.textContent = `Lap ${lapTimes.length}: ${formatTime(currentLapTime)}`;
+        lapTimesList.appendChild(lapItem);
+    }
+
+    // Event listeners
+    startStopButton.addEventListener('click', toggleStopwatch);
+    resetButton.addEventListener('click', resetStopwatch);
+    lapButton.addEventListener('click', recordLap);
+
+</script>
+
+</body>
+</html>
